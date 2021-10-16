@@ -10,7 +10,7 @@ description: 'Publish WebApp build content to web server with rsync'
 # Input parameters description
 inputs:
 
-  server_name: # id of input 1
+  server_name:
     description: 'Publish server name or IP address'
     required: true
 
@@ -34,10 +34,10 @@ inputs:
     required: true
 
 # Output parameters description
-outputs:
+# outputs:
 
-  time: # id of output 1
-    description: 'The time of publish processing'
+#   time: 
+#     description: 'The time of publish processing'
 
 # Runs (execute action in docker container)
 runs:

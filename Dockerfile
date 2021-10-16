@@ -1,6 +1,6 @@
 # Container image that runs Actions code
 FROM alpine:latest
-LABEL "com.github.actions.name"="Deploy WebApp with Rsync"
+LABEL "com.github.actions.name"="Publish WebApp build content"
 LABEL maintainer="kirill@scherba.ru"
 
 # Additional docker image applications to run Actions code
