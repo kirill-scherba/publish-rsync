@@ -19,7 +19,7 @@ inputs:
     default: 'root'
 
   source-folder: 
-    description: 'This projects \'dist\' folder with content to publish'
+    description: 'This projects dist folder with content to publish'
     required: true
     default: 'dist'
 
