@@ -10,6 +10,8 @@
 #
 #
 
+set -e
+
 # Show input parameters (by $)
 echo -e "\nGet input parameters:" \
     "\nserver_name(\$1): $1" \
