@@ -1,17 +1,37 @@
 # action.yml
-name: 'Hello World'
-description: 'Greet someone and record the time'
+name: 'Publish WebApp build content'
+description: 'Publish WebApp build content to web server with rsync'
+
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
+
+  server-name:
+    description: 'Publish server name or IP address'
     required: true
-    default: 'World'
+
+  server-folder:  # id of input
+    description: 'Publish server folder name'
+    required: true
+    default: '/publish'
+
+  server-user-name:
+    description: 'Publish server user name'
+    required: true
+    default: 'root'
+
+  source-folder: 
+    description: 'This projects \'dist\' folder with content to publish'
+    required: true
+    default: 'dist'
+
 outputs:
   time: # id of output
-    description: 'The time we greeted you'
+    description: 'The time of publish processing'
+
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.who-to-greet }}
-
+    - ${{ inputs.server-name }}      # $1
+    - ${{ inputs.server-folder }}    # $2
+    - ${{ inputs.server-user-name }} # $3
+    - ${{ inputs.source-folder }}    # $4
