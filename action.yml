@@ -33,12 +33,6 @@ inputs:
     description: 'SSH Private key used in rsync connection to deployment server'
     required: true
 
-# Output parameters description
-# outputs:
-
-#   time: 
-#     description: 'The time of publish processing'
-
 # Runs (execute action in docker container)
 runs:
 
