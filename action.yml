@@ -21,7 +21,7 @@ inputs:
   source-folder: 
     description: 'This projects dist folder with content to publish'
     required: true
-    default: 'dist'
+    default: './dist'
 
 outputs:
   time: # id of output
