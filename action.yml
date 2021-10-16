@@ -29,6 +29,10 @@ inputs:
     required: true
     default: './dist'
 
+  deployment_key:
+    description: 'SSH Private key used in rsync connection to deployment server'
+    required: true
+
 # Output parameters description
 outputs:
 
@@ -45,3 +49,4 @@ runs:
     - ${{ inputs.server_folder }}    # $2
     - ${{ inputs.server_user_name }} # $3
     - ${{ inputs.source_folder }}    # $4
+    - ${{ inputs.deployment_key }}   # $5
