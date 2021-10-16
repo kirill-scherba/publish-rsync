@@ -15,6 +15,7 @@ echo -e "Preparing to execute publish commands: \ncd $4 && rsync --progress -e \
 
 # Change dir to source folder
 cd $4
+echo -e "\nPublish folder content:"
 ls -all
 cd ../ 
 
