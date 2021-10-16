@@ -1,18 +1,38 @@
-# Hello world docker action
+# Deploy WebApp with Rsync docker action
 
-This action prints "Hello World" or "Hello" + the name of a person to greet to the log.
+This action publish your WebApp production folder to web server (or it may publish any folder of your project to any folder of your server) using rsync.
+
+Rsync is very usefull upplication which can transfer huge data from one host to another. Rsync compress and split files and transfer only changed pices of files. So rsync transfer files very quicly.
+
+To connect one host to another rsync can use SSH, so goal off this Action is creating connection using ssh keys and transfer files with rsync.
+
+This document describe:
+
+- input parameters of this Action
+- how to create and store SSH key
+- how to use this Action in your Action to pablish data to server
 
 ## Inputs
 
-## `who-to-greet`
+## `deployment_key`
 
-**Required** The name of the person to greet. Default `"World"`.
+**Required** This is rsa private key which will be used to connect by SSH.
 
-## Outputs
+## `server_folder`
 
-## `time`
+**Required** This is server folder where files will be published.
 
-The time we greeted you.
+## `server_name`
+
+**Required** This server name or IP to connect to
+
+## `server_user_name`
+
+**Required** This servers user name who can connect by SSH
+
+## `source_folder`
+
+**Required** This your procect folder from with files will be copy
 
 ## Create SSH key
 
@@ -26,16 +46,33 @@ The time we greeted you.
 
 ### 2. Add created private key to your repository secrets with name 'DEPLOYMENT_KEY'
 
-- cut '/home/YOUR_NAME/.ssh/id_rsa_deploy'
+- `cat /home/YOUR_NAME/.ssh/id_rsa_deploy`
 - copy private key text
 - go to 'https://github.com/YOUR_NAME/YOUR_REPOSITORY_NAME/settings/secrets/actions' and add *New reopsitory Secret* with name 'DEPLOYMENT_KEY'
 
 ### 3. Add created public key to your deloy server
 
-Bla-Bla-Bla ...
+- print your public key:  
+`cat /home/YOUR_NAME/.ssh/id_rsa_deploy.pub`
+- copy your public key text
+- login to your deploy host
+- add your public key to '~/.ssh/authorized_keys':  
+`vim ~/.ssh/authorized_keys`
+
+## Secury other publish server parameters
+
+To protect other publish server parameters add it to your repository secrets too. Go to 'https://github.com/YOUR_NAME/YOUR_REPOSITORY_NAME/settings/secrets/actions' and keys:
+
+- `SERVER_FOLDER`: /var/www/your.server.com/www
+- `SERVER_NAME`: your.server.com
+- `SERVER_USER_NAME`: deloy_user
 
 ## Example usage
 
     uses: kirill-scherba/publish-rsync@v1
     with:
       deployment_key: ${{ secrets.DEPLOYMENT_KEY }}
+      server_folder: ${{ secrets.SERVER_FOLDER }}
+      server_name: ${{ secrets.SERVER_NAME }}
+      server_user_name: ${{ secrets.SERVER_USER_NAME }}
+      source_folder: './dist'
