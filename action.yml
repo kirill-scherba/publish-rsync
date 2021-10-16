@@ -4,16 +4,16 @@ description: 'Publish WebApp build content to web server with rsync'
 
 inputs:
 
-  server-name:
+  server_name:
     description: 'Publish server name or IP address'
     required: true
 
-  server-folder:  # id of input
+  server_folder:  # id of input
     description: 'Publish server folder name'
     required: true
     default: '/publish'
 
-  server-user-name:
+  server_user_name:
     description: 'Publish server user name'
     required: true
     default: 'root'
@@ -31,7 +31,7 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.server-name }}      # $1
-    - ${{ inputs.server-folder }}    # $2
-    - ${{ inputs.server-user-name }} # $3
+    - ${{ inputs.server_name }}      # $1
+    - ${{ inputs.server_folder }}    # $2
+    - ${{ inputs.server_user_name }} # $3
     - ${{ inputs.source_folder }}    # $4

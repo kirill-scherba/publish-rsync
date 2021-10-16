@@ -2,24 +2,35 @@
 
 # Input parameters
 #
-#   server-name: $1
-#   server-folder: $2
-#   erver-user-name: $3
-#   source-folder: $4
+#   server_name: $1
+#   server_folder: $2
+#   server_user_name: $3
+#   source_folder: $4
 #
 #
 
-# Show input parameters
-echo -e "\nGet input parameters:\nserver-name: $1\nserver-folder: $2\nserver-user-name: $3\nsource-folder: $4"
+# Show input parameters (by $)
+echo -e "\nGet input parameters:" \
+    "\nserver_name(\$1): $1" \
+    "\nserver_folder(\$2): $2" \
+    "\nserver_user_name(\$3): $3" \
+    "\nsource_foldere(\$4): $4"
 
 # Check named parameters
-echo -e "\nParameter source-folder: '${INPUT_SOURCE-FOLDER}' or '${INPUT_SOURCE_FOLDER}'"
+echo -e "\nGet named input parameters:\n" \
+    "\nParameter server_name: '${INPUT_SERVER_NAME}'" \
+    "\nParameter server_folder: '${INPUT_SERVER_FOLDER}'" \
+    "\nParameter server_user_name: '${INPUT_SERVER_USER_NAME}'" \
+    "\nParameter source_folder: '${INPUT_SOURCE_FOLDER}'"
 
 # Show and publish command
-echo -e "\nPreparing to execute publish commands: \ncd $4 && rsync --progress -e \"ssh -o StrictHostKeyChecking=no\" --recursive ./ $3@$1:$2 && cd ../"
+echo -e "\nPreparing to execute publish commands: \ncd ${INPUT_SOURCE_FOLDER} &&" \
+        "rsync --progress -e \"ssh -o StrictHostKeyChecking=no\" --recursive ./ " \
+        "${INPUT_SERVER_USER_NAME}@${INPUT_SERVER_NAME}:${INPUT_SERVER_FOLDER} &&" \
+        "cd ../"
 
 # Change dir to source folder
-cd $4
+cd ${INPUT_SOURCE_FOLDER}
 echo -e "\nPublish folder content:"
 ls -all
 cd ../ 
