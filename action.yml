@@ -18,7 +18,7 @@ inputs:
     required: true
     default: 'root'
 
-  source-folder: 
+  source_folder: 
     description: 'This projects dist folder with content to publish'
     required: true
     default: './dist'
@@ -34,4 +34,4 @@ runs:
     - ${{ inputs.server-name }}      # $1
     - ${{ inputs.server-folder }}    # $2
     - ${{ inputs.server-user-name }} # $3
-    - ${{ inputs.source-folder }}    # $4
+    - ${{ inputs.source_folder }}    # $4
