@@ -34,7 +34,8 @@ echo -e "\nPreparing to execute publish commands: \ncd ${INPUT_SOURCE_FOLDER} &&
 
 # Set private SSH key
 # echo "${INPUT_DEPLOYMENT_KEY}" | base64 -d >> "/root/.ssh/id_rsa" && \
-echo "Set deployment key"
+echo "\nSet deployment key"
+mkdir -p /root/.ssh
 echo "${INPUT_DEPLOYMENT_KEY}" >> "/root/.ssh/id_rsa" && \
     chmod 0700 "/root/.ssh" && \
     chmod 0600 "/root/.ssh/id_rsa"
