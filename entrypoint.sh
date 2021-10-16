@@ -49,7 +49,7 @@ cd ${INPUT_SOURCE_FOLDER}
 echo -e "\nPublish folder content:"
 ls -all
 echo -e "\nRun rsync:"
-rsync --progress -e \"ssh -o StrictHostKeyChecking=no\" --recursive ./ \
+rsync --progress -e "ssh -o StrictHostKeyChecking=no" --recursive ./ \
     ${INPUT_SERVER_USER_NAME}@${INPUT_SERVER_NAME}:${INPUT_SERVER_FOLDER}
 cd ../ 
 
