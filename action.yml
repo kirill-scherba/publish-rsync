@@ -1,14 +1,20 @@
 # action.yml
 name: 'Publish WebApp build content'
+author: 'Kirill Scherba'
 description: 'Publish WebApp build content to web server with rsync'
 
+# branding:
+#   icon: arrow-right
+#   color: purple
+
+# Input parameters description
 inputs:
 
-  server_name:
+  server_name: # id of input 1
     description: 'Publish server name or IP address'
     required: true
 
-  server_folder:  # id of input
+  server_folder:  
     description: 'Publish server folder name'
     required: true
     default: '/publish'
@@ -23,11 +29,15 @@ inputs:
     required: true
     default: './dist'
 
+# Output parameters description
 outputs:
-  time: # id of output
+
+  time: # id of output 1
     description: 'The time of publish processing'
 
+# Runs (execute action in docker container)
 runs:
+
   using: 'docker'
   image: 'Dockerfile'
   args:

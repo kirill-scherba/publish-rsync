@@ -2,10 +2,10 @@
 
 # Input parameters
 #
-#   server_name: $1
-#   server_folder: $2
-#   server_user_name: $3
-#   source_folder: $4
+#   INPUT_SERVER_NAME: $1
+#   INPUT_SERVER_FOLDER: $2
+#   INPUT_SERVER_USER_NAME: $3
+#   INPUT_SOURCE_FOLDER: $4
 #
 #
 
