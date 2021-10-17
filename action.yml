@@ -3,9 +3,9 @@ name: 'Publish WebApp build content'
 author: 'Kirill Scherba'
 description: 'Publish WebApp build content to web server with rsync'
 
-# branding:
-#   icon: arrow-right
-#   color: purple
+branding:
+  icon: arrow-right
+  color: green
 
 # Input parameters description
 inputs:
