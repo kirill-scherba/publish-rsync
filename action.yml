@@ -3,14 +3,14 @@ name: 'Publish WebApp build content'
 author: 'Kirill Scherba'
 description: 'Publish WebApp build content to web server with rsync'
 
-# branding:
-#   icon: arrow-right
-#   color: purple
+branding:
+  icon: arrow-right
+  color: green
 
 # Input parameters description
 inputs:
 
-  server_name: # id of input 1
+  server_name:
     description: 'Publish server name or IP address'
     required: true
 
@@ -32,12 +32,6 @@ inputs:
   deployment_key:
     description: 'SSH Private key used in rsync connection to deployment server'
     required: true
-
-# Output parameters description
-outputs:
-
-  time: # id of output 1
-    description: 'The time of publish processing'
 
 # Runs (execute action in docker container)
 runs:
