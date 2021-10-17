@@ -2,7 +2,7 @@
 
 This action publish your WebApp production folder to web server (or it may publish any folder of your project to any folder of your server) using rsync.
 
-Rsync is very usefull upplication which can transfer huge data from one host to another. Rsync compress and split files and transfer only changed pices of files. So rsync transfer files very quicly.
+Rsync is very usefull application which can transfer huge data from one host to another. Rsync compress and split files and transfer only changed pices of files. So rsync transfer files very quicly.
 
 To connect one host to another rsync can use SSH, so goal off this Action is creating connection using ssh keys and transfer files with rsync.
 
