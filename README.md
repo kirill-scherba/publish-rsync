@@ -38,7 +38,9 @@ This document describe:
 
 ### 1. Create ssh key on your pc
 
-    ssh-keygen -t rsa
+```bash
+ssh-keygen -t rsa
+```
 
 - on question 'Enter file in which to save the key' set '/home/YOUR_NAME/.ssh/id_rsa_deploy'
 - on question 'nter passphrase (empty for no passphrase)' press enter
@@ -69,10 +71,16 @@ To protect other publish server parameters add it to your repository secrets too
 
 ## Example usage
 
-    uses: kirill-scherba/publish-rsync@v1
-    with:
-      deployment_key: ${{ secrets.DEPLOYMENT_KEY }}
-      server_folder: ${{ secrets.SERVER_FOLDER }}
-      server_name: ${{ secrets.SERVER_NAME }}
-      server_user_name: ${{ secrets.SERVER_USER_NAME }}
-      source_folder: './dist'
+```yml
+uses: kirill-scherba/publish-rsync@v1
+with:
+    deployment_key: ${{ secrets.DEPLOYMENT_KEY }}
+    server_folder: ${{ secrets.SERVER_FOLDER }}
+    server_name: ${{ secrets.SERVER_NAME }}
+    server_user_name: ${{ secrets.SERVER_USER_NAME }}
+    source_folder: './dist'
+```
+
+## License
+
+[MIT](LICENSE)
