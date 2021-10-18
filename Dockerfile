@@ -1,10 +1,11 @@
 # Container image that runs Actions code
-FROM alpine:latest
+FROM kscherba/alpine-rsync:latest
 LABEL "com.github.actions.name"="Publish WebApp build content"
-LABEL maintainer="kirill@scherba.ru"
+LABEL org.opencontainers.image.authors="kirill@scherba.ru"
+LABEL org.opencontainers.image.source https://github.com/kirill-scherba/publish-rsync
 
 # Additional docker image applications to run Actions code
-RUN apk add git rsync bash openssh
+# RUN apk add git rsync bash openssh
 
 # Code file
 COPY entrypoint.sh /entrypoint.sh
